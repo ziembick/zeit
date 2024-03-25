@@ -13,6 +13,7 @@ import { useAuth } from '../../../_providers/Auth'
 import classes from './index.module.scss'
 
 type FormData = {
+  name: string
   email: string
   password: string
   passwordConfirm: string
@@ -62,7 +63,8 @@ const CreateAccountForm: React.FC = () => {
         await login(data)
         clearTimeout(timer)
         if (redirect) router.push(redirect as string)
-        else router.push(`/account?success=${encodeURIComponent('Account created successfully')}`)
+        else router.push(`/`)
+        window.location.href = '/'
       } catch (_) {
         clearTimeout(timer)
         setError('There was an error with the credentials provided. Please try again.')
@@ -73,24 +75,27 @@ const CreateAccountForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <p>
-        {`This is where new customers can signup and create a new account. To manage all users, `}
-        <Link href="/admin/collections/users">login to the admin dashboard</Link>
-        {'.'}
-      </p>
       <Message error={error} className={classes.message} />
       <Input
         name="email"
-        label="Email Address"
+        label="E-mail"
         required
         register={register}
         error={errors.email}
         type="email"
       />
       <Input
+        name="name"
+        label="Nome Completo"
+        required
+        register={register}
+        error={errors.name}
+        type="text"
+      />
+      <Input
         name="password"
         type="password"
-        label="Password"
+        label="Senha"
         required
         register={register}
         error={errors.password}
@@ -98,7 +103,7 @@ const CreateAccountForm: React.FC = () => {
       <Input
         name="passwordConfirm"
         type="password"
-        label="Confirm Password"
+        label="Confirmar Senha"
         required
         register={register}
         validate={value => value === password.current || 'The passwords do not match'}
@@ -106,13 +111,13 @@ const CreateAccountForm: React.FC = () => {
       />
       <Button
         type="submit"
-        label={loading ? 'Processing' : 'Create Account'}
+        label={loading ? 'Processing' : 'Criar Conta'}
         disabled={loading}
         appearance="primary"
         className={classes.submit}
       />
       <div>
-        {'Already have an account? '}
+        {'Já possui uma conta? '}
         <Link href={`/login${allParams}`}>Login</Link>
       </div>
     </form>
