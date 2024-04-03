@@ -13,14 +13,16 @@
 
 .heroWrapper {
   background-color: var(--color-dark-50);
-  width: 100%;
-  max-width: 1560px;
+  width: 100vw; //added
+  // width: 100%;
+  // max-width: 1560px;
   max-height: 884px;
   display: flex;
   align-items: center;
 
   background-size: cover;
-  background-position: revert;
+  // background-position: revert;
+  background-position: center; //added
   background-repeat: no-repeat;
 
   @include small-break {
@@ -35,9 +37,12 @@
   justify-content: center;
   padding: 15% var(--gutter-h);
   width: 100%;
+  box-sizing: border-box;
 
   @include mid-break {
     padding: 10% 30px;
+    width: 85%;
+    margin: 0 auto;
   }
 
   @include small-break {
