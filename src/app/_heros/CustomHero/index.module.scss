@@ -6,7 +6,8 @@
   display: flex;
   justify-content: center;
   width: 100vw;
-  width: 100%;
+  // width: 100%;
+  margin: 0 auto; // added
 
   @include small-break {
     margin: 0;
@@ -18,11 +19,13 @@
   width: 100vw; //added
   // width: 100%;
   // max-width: 1560px;
-  max-height: 2px;
+  max-height: 884px;
   display: flex;
   align-items: center;
+  margin: 0 auto;
 
-  background-size: cover;
+  // background-size: cover;
+  background-size: contain;
   // background-position: revert;
   background-position: center; //added
   background-repeat: no-repeat;
@@ -31,6 +34,11 @@
     background-size: cover;
     background-position: center;
   }
+
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
+
 }
 
 .heroTextBox {
