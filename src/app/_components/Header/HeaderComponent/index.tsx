@@ -45,7 +45,7 @@ export default function HeaderComponent({ header }: { header: Header }) {
     >
       <Gutter className={classes.wrap}>
         <Link href="/">
-          <Image src="/logo-black.svg" alt="Logo" width={170} height={50} className={classes.imagem}/>
+          <Image src="/logo-white.svg" alt="Logo" width={170} height={50} className={classes.imagem}/>
         </Link>
         <nav className={classes.teste}>
           {NAV_ITEMS.map(item => (
