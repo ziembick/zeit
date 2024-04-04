@@ -1,0 +1,74 @@
+.navBar {
+    display: none;
+    position: relative;
+    top: 7px;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (max-width: 1200px) {
+        display: flex;
+    } 
+        
+}
+
+
+.ulBar {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.liBar {
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.linksSideBar {
+    height: 100%;
+    padding: 10px 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.links:hover {
+    color: #f0f0f0;
+}
+
+.ulBarSideBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.425);
+    backdrop-filter: blur(30px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &.open {
+        display: flex;
+    }
+    &.close {
+        display: none;
+    }
+}
+
+.liBarSideBar {
+    width: 100%;
+}
+
+.linksSideBar {
+    width: 100%;
+}
+

@@ -1,7 +1,12 @@
+@use '../../../_css/queries.scss' as *;
+
+
 .header { 
-    padding: 25px 0; 
+    padding: 5px 0; 
+    margin-bottom: 3px;
     position: relative; 
     width: 100%; 
+    border: 1px solid black;
     // background-image: url("/home_site_1.png"); 
     // background-size: cover; 
     // background-position: center; 
@@ -20,30 +25,24 @@
     width: 170px;
 }
 
-.hide {
-    display: none;
-}
-
-.teste {
-    position: relative;
-    left: 0;
-    transform: translateX(-50%);
-    padding: 0;
-    margin-left: 10rem;
-    display: flex;
-    justify-content:  center;
-    align-items: center;
-    font-family: var(--font-titillium);
-    gap: 1rem;
-    color: white;
-    list-style: none;
-    text-decoration: none;
-}
-
 .nav {
     text-decoration: none;
     font-family: var(--font-titillium);
-    color: white;
+    color: black;
     font-size: 0.9rem;
 }
 
+.nav:hover {
+    color: rgb(70, 67, 67);
+}
+
+.navItems {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5rem;
+    
+    @media screen and (max-width: 1200px) {
+        display: none;
+    } 
+}
