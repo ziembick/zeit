@@ -57,7 +57,7 @@ export default function HeaderComponent({ header }: { header: Header }) {
           {NAV_ITEMS.map(item => (
             <NavItem {...item} key={item.label} />
           ))}
-       
+        </nav>
 
         <HeaderNav header={header} />
       </Gutter>
