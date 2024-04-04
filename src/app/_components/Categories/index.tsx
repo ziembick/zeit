@@ -4,11 +4,15 @@ import Link from 'next/link'
 import { Category } from '../../../payload/payload-types'
 import CategoryCard from './CategoryCard'
 
+
 export default function Categories({ categories }: { categories: Category[] }) {
   return (
     <section className={classes.container}>
+      <div className={classes.comprePor}>
+        <h6>Compre por</h6>
+        <h3>Categorias</h3>
+      </div>
       <div className={classes.titleWrapper}>
-        <h3>Compre por categorias</h3>
         <Link href="/products">Mostrar Tudo</Link>
       </div>
       <div className={classes.list}>
