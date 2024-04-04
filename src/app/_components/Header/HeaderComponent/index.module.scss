@@ -24,26 +24,28 @@
     display: none;
 }
 
-.teste {
-    position: relative;
-    left: 0;
-    transform: translateX(-50%);
-    padding: 0;
-    margin-left: 10rem;
-    display: flex;
-    justify-content:  center;
-    align-items: center;
-    font-family: var(--font-titillium);
-    gap: 1rem;
-    color: white;
-    list-style: none;
-    text-decoration: none;
-}
-
 .nav {
     text-decoration: none;
     font-family: var(--font-titillium);
-    color: white;
+    color: black;
     font-size: 0.9rem;
 }
 
+
+
+
+// .teste {
+//     position: relative;
+//     left: 0;
+//     transform: translateX(-50%);
+//     padding: 0;
+//     margin-left: 10rem;
+//     display: flex;
+//     justify-content:  center;
+//     align-items: center;
+//     font-family: var(--font-titillium);
+//     gap: 1rem;
+//     color: black;
+//     list-style: none;
+//     text-decoration: none;
+// }

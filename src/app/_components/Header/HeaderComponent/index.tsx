@@ -14,6 +14,10 @@ import { NavItem } from './nav-item'
 
 const NAV_ITEMS = [
   {
+    label: 'SHOP',
+    href: '/products'
+  },
+  {
     label: 'LOOKBOOK',
     href: '/lookbook',
   },
@@ -21,10 +25,7 @@ const NAV_ITEMS = [
     label: 'INSIDE ZEIT',
     href: '/inside',
   },
-  {
-    label: 'ONDE ENCONTRAR',
-    href: '/encontrar',
-  },
+
   {
     label: 'FALE CONOSCO',
     href: '/contato',
@@ -36,23 +37,29 @@ export default function HeaderComponent({ header }: { header: Header }) {
 
   return (
     <nav
-      className={[
-        classes.header,
-        noHeaderFooterUrls.includes(pathname) && classes.hide,
-      ]
+      className={[classes.header, noHeaderFooterUrls.includes(pathname) && classes.hide]
         .filter(Boolean)
         .join(' ')}
     >
       <Gutter className={classes.wrap}>
         <Link href="/">
-          <Image src="/logo-white.svg" alt="Logo" width={170} height={50} className={classes.imagem}/>
+          <Image
+            src="/zeit-logo.png"
+            alt="Logo"
+            width={170}
+            height={50}
+            className={classes.imagem}
+          />
         </Link>
-        <nav className={classes.teste}>
+
+        
           {NAV_ITEMS.map(item => (
             <NavItem {...item} key={item.label} />
           ))}
-        </nav>
+       
+
         <HeaderNav header={header} />
+
         {/* <MobileNav header={header} /> */}
       </Gutter>
     </nav>

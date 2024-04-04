@@ -10,6 +10,7 @@ import { CartLink } from '../../CartLink'
 import { CMSLink } from '../../Link'
 
 import classes from './index.module.scss'
+import Image from 'next/image'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
@@ -21,17 +22,24 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         return <CMSLink key={i} {...link} appearance="none" />
       })}
       <CartLink />
-      {user && <Link href="/account">Account</Link>}
+      {user && (
+        <Link href="/account">
+          <Image src="/user2.png" alt="User Image" width={19} height={19} />
+        </Link>
+      )}
       {!user && (
         <Button
           el="link"
           href="/login"
-          label="Login"
-          appearance="primary"
+          // label="Login"
+          appearance="none"
           onClick={() => (window.location.href = '/login')}
-        />
+          className={classes.buttonCustom}
+        >
+          <Image src="/user.png" alt="User login" width={19} height={19} />
+        </Button>
       )}
-      {user && <CartLink />}
+      {/* {user && <CartLink />} */}
     </nav>
   )
 }
