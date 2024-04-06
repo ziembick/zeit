@@ -105,6 +105,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h6>
                     <p>{`Quantity: ${quantity}`}</p>
+                    {/* <p>{`Tamanho: ${size}`}</p> */}
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>

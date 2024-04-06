@@ -78,6 +78,7 @@ const Products: CollectionConfig = {
             },
           ],
         },
+
         {
           label: 'Product Details',
           fields: [

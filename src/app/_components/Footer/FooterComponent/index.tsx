@@ -19,7 +19,10 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
   return (
     <footer className={noHeaderFooterUrls.includes(pathname) ? classes.hide : ''}>
       <Gutter>
-        <ul className={classes.inclusions}>
+        <div className={classes.spacing}>
+          <p></p>
+        </div>
+        {/* <ul className={classes.inclusions}>
           {inclusions.map(inclusion => (
             <li key={inclusion.title}>
               <Image
@@ -34,14 +37,14 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
               <p>{inclusion.description}</p>
             </li>
           ))}
-        </ul>
-      </Gutter>
+        </ul> */}
+      </Gutter> 
 
       <div className={classes.footer}>
         <Gutter>
           <div className={classes.wrap}>
             <Link href="/">
-              <Image src="/logo-white.svg" alt="logo" width={170} height={50} />
+              <Image src="/zeit2.png" alt="logo" width={170} height={50} />
               <p className={classes.copy}>{footer?.copyright}</p>
             </Link>
             <div className={classes.contato}>

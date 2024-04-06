@@ -10,6 +10,8 @@ import { Price } from '../../_components/Price'
 import RichText from '../../_components/RichText'
 
 import classes from './index.module.scss'
+import { Blocks } from '../../_components/Blocks'
+import { Size } from '../../_components/Size'
 
 export const ProductHero: React.FC<{
   product: Product
@@ -19,7 +21,7 @@ export const ProductHero: React.FC<{
     stripeProductID,
     title,
     categories,
-    meta: { image: metaImage, description } = {},
+    meta: { image: metaImage, description} = {},
   } = product
 
   return (
@@ -58,9 +60,14 @@ export const ProductHero: React.FC<{
         </div>
 
         <Price product={product} button={false} />
+        <p>Size:</p>
+        <Size product={product}/>
+        
+
         <div className={classes.description}>
           <h6>Descrição</h6>
           <p>{description}</p>
+          
         </div>
 
         <AddToCartButton product={product} className={classes.addToCartButton} />
