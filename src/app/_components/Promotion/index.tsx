@@ -38,22 +38,23 @@ const Promotion = () => {
   }, [])
 
   return (
-    <section className={classes.promotion}>
-      <div className={classes.textBox}>
-        <h3 className={classes.title}>Promoções do mês</h3>
-        <p>
-          Se prepare para uma experiência como nunca com nossas promoções do mês! Toda compra vem
-          com uma vantagem e oferta exclusiva, tranformando esse mês uma celebração de experiência e
-          escolhas de ofertas exclusivas. Não perca a oportunidade. 🎁🛒
-        </p>
-        <ul className={classes.stats}>
-          <StatBox label="Days" value={time.days} />
-          <StatBox label="Hours" value={time.hours} />
-          <StatBox label="Minutes" value={time.minutes} />
-          <StatBox label="Seconds" value={time.seconds} />
-        </ul>
-      </div>
-    </section>
+    <></>
+    // <section className={classes.promotion}>
+    //   <div className={classes.textBox}>
+    //     <h3 className={classes.title}>Promoções do mês</h3>
+    //     <p>
+    //       Se prepare para uma experiência como nunca com nossas promoções do mês! Toda compra vem
+    //       com uma vantagem e oferta exclusiva, tranformando esse mês uma celebração de experiência e
+    //       escolhas de ofertas exclusivas. Não perca a oportunidade. 🎁🛒
+    //     </p>
+    //     <ul className={classes.stats}>
+    //       <StatBox label="Days" value={time.days} />
+    //       <StatBox label="Hours" value={time.hours} />
+    //       <StatBox label="Minutes" value={time.minutes} />
+    //       <StatBox label="Seconds" value={time.seconds} />
+    //     </ul>
+    //   </div>
+    // </section>
   )
 }
 
