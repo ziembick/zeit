@@ -3,8 +3,11 @@ import { Media } from '../../../_components/Media'
 import { Price } from '../../../_components/Price'
 
 import classes from './index.module.scss'
+import { Size } from '../../../_components/Size'
 
-export const CheckoutItem = ({ product, title, metaImage, quantity, index }) => {
+export const CheckoutItem = ({ product, title, metaImage, quantity, index}) => {
+  const selectedSize = localStorage.getItem('selectedSize')
+
   return (
     <li className={classes.item} key={index}>
       <Link href={`/products/${product.slug}`} className={classes.mediaWrapper}>
@@ -20,6 +23,7 @@ export const CheckoutItem = ({ product, title, metaImage, quantity, index }) => 
           <Price product={product} button={false} />
         </div>
         <p className={classes.quantity}>x{quantity}</p>
+        <p className={classes.quantity}>Tamanho: {selectedSize}</p>
       </div>
 
       <div className={classes.subtotal}>

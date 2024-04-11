@@ -11,26 +11,40 @@ import { Button } from 'payload/components'
 
 export const Size: React.FC<{
   product: Product
+  onSizeSelected: (size: string) => void
 }> = props => {
-  const { product} = props
+  const { product, onSizeSelected} = props
   const testLayout = product.layout.filter((L) => L.blockType == "content")
   const gloriaAmem = testLayout[0]['columns']
-  console.log("Paulo")
-  // console.log(gloriaAmem)
-  gloriaAmem.forEach((element) => console.log(element));
-  const varia = gloriaAmem.reduce(
-    (accumulator, currentValue) => accumulator + " " + currentValue.size,
-    "",
-  );
-  // console.log(Object.getOwnPropertyNames(testLayout[0]))
-  
+
+
+  const handleSizeClick = (size: string) => {
+    setSelectedSize(size)
+    onSizeSelected(size)
+  }
+ 
+  const [selectedSize, setSelectedSize] = useState<any>('')
+
+  useEffect(() => {
+    console.log("Tamanho selecionado:", selectedSize)
+  }, [selectedSize])
+
+ 
 
   return (
     <div className={classes.actions}>
-      <Button>{varia}</Button>
-      <Button>{varia}</Button>
-      <Button>{varia}</Button>
-      <Button>{varia}</Button>
+        {gloriaAmem.map(item => (
+            <Button key={item.size} onClick={() => handleSizeClick(item.size)}>{item.size}</Button>
+          ))}
     </div>
   )
 }
+
+ // console.log("Paulo")
+  // gloriaAmem.forEach((element) => console.log(element));
+  // const varia = gloriaAmem.reduce(
+  //   (accumulator, currentValue) => accumulator + " " + currentValue.size,
+  //   "",
+  // );
+  // console.log(Object.getOwnPropertyNames(testLayout[0]))
+  

@@ -74,7 +74,7 @@ export const CartProvider = props => {
 
         if (parsedCart?.items && parsedCart?.items?.length > 0) {
           const initialCart = await Promise.all(
-            parsedCart.items.map(async ({ product, quantity }) => {
+            parsedCart.items.map(async ({ selectedSize, product, quantity }) => { // adicionei aqui
               const res = await fetch(
                 `${process.env.NEXT_PUBLIC_SERVER_URL}/api/products/${product}`,
               )
@@ -82,6 +82,7 @@ export const CartProvider = props => {
               return {
                 product: data,
                 quantity,
+                selectedSize, // adicionei aqui
               }
             }),
           )

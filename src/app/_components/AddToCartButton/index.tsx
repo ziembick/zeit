@@ -14,8 +14,10 @@ export const AddToCartButton: React.FC<{
   quantity?: number
   className?: string
   appearance?: Props['appearance']
+  selectedSize?: any
 }> = props => {
-  const { product, quantity = 1, className, appearance = 'primary' } = props
+  
+  const { product, quantity = 1, className, appearance = 'primary', selectedSize } = props
 
   const { cart, addItemToCart, isProductInCart, hasInitializedCart } = useCart()
 
@@ -24,13 +26,20 @@ export const AddToCartButton: React.FC<{
 
   useEffect(() => {
     setIsInCart(isProductInCart(product))
-  }, [isProductInCart, product, cart])
+    setFinalItem(product => ({
+      ...product,
+      size: selectedSize
+  })
+)
+  }, [isProductInCart, product, cart, selectedSize])
+  
+  const [finalItem, setFinalItem] = useState(product)
 
   return (
     <Button
       href={isInCart ? '/cart' : undefined}
       type={!isInCart ? 'button' : undefined}
-      label={isInCart ? `✓ View in cart` : `Adicionar as compras`}
+      label={isInCart ? `✓ Ver no carrinho` : `Adicionar as compras`}
       el={isInCart ? 'link' : undefined}
       appearance={appearance}
       className={[

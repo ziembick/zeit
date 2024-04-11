@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
@@ -15,10 +15,11 @@ import { generateMeta } from '../../../_utilities/generateMeta'
 // See the note in '../../../[slug]/page.tsx' about this
 export const dynamic = 'force-dynamic'
 
-export default async function Product({ params: { slug } }) {
+export default async function Product({ params: { slug }}) {
   const { isEnabled: isDraftMode } = draftMode()
 
   let product: Product | null = null
+  
 
   try {
     product = await fetchDoc<Product>({
@@ -35,6 +36,7 @@ export default async function Product({ params: { slug } }) {
   }
 
   const { relatedProducts } = product
+
 
   return (
     <>

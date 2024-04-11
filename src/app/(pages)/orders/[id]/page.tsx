@@ -48,13 +48,13 @@ export default async function Order({ params: { id } }) {
   return (
     <Gutter className={classes.orders}>
       <h1>
-        {`Order`}
+        {`Pedidos`}
         <span className={classes.id}>{`${order.id}`}</span>
       </h1>
       <div className={classes.itemMeta}>
         <p>{`ID: ${order.id}`}</p>
         <p>{`Payment Intent: ${order.stripePaymentIntentID}`}</p>
-        <p>{`Ordered On: ${formatDateTime(order.createdAt)}`}</p>
+        <p>{`Compra efetuada: ${formatDateTime(order.createdAt)}`}</p>
         <p className={classes.total}>
           {'Total: '}
           {new Intl.NumberFormat('en-US', {
@@ -65,7 +65,7 @@ export default async function Order({ params: { id } }) {
       </div>
       <HR />
       <div className={classes.order}>
-        <h4 className={classes.orderItems}>Items</h4>
+        <h4 className={classes.orderItems}>Itens</h4>
         {order.items?.map((item, index) => {
           if (typeof item.product === 'object') {
             const {
@@ -109,7 +109,7 @@ export default async function Order({ params: { id } }) {
                         {title}
                       </Link>
                     </h5>
-                    <p>{`Quantity: ${quantity}`}</p>
+                    <p>{`Quantidade: ${quantity}`}</p>
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>

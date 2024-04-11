@@ -44,12 +44,6 @@ export const Price: React.FC<{
   button?: 'addToCart' | 'removeFromCart' | false
 }> = props => {
   const { product, product: { priceJSON } = {}, button = 'addToCart', quantity } = props
-  const testLayout = product.layout.filter((L) => L.blockType == "content")
-  const gloriaAmem = testLayout[0]['columns']
-  console.log("Paulo")
-  // console.log(gloriaAmem)
-  gloriaAmem.forEach((element) => console.log(element));
-  // console.log(Object.getOwnPropertyNames(testLayout[0]))
   const [price, setPrice] = useState<{
     actualPrice: string
     withQuantity: string
