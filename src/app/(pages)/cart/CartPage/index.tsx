@@ -1,9 +1,9 @@
 'use client'
 
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import Link from 'next/link'
 
-import { Page, Settings } from '../../../../payload/payload-types'
+import { Page, Product, Settings } from '../../../../payload/payload-types'
 import { Button } from '../../../_components/Button'
 import { HR } from '../../../_components/HR'
 import { LoadingShimmer } from '../../../_components/LoadingShimmer'
@@ -23,9 +23,22 @@ export const CartPage: React.FC<{
   const { settings } = props
   const { productsPage } = settings || {}
 
+  // const [cartItems, setcartItems] = useState<CartItemType[]>(cart?.items || [])
+
   const { user } = useAuth()
 
-  const { cart, cartIsEmpty, addItemToCart, cartTotal, hasInitializedCart } = useCart()
+  const { cart, cartIsEmpty, addItemToCart, cartTotal, hasInitializedCart} = useCart()
+
+  console.log("PAULO2")
+
+  const [selectedSize, setSelectedSize] = useState<string>('')
+
+  const handleSizeSelected = (size: string) => {
+    setSelectedSize(size)
+    size
+  }
+
+  // console.log(" TESTAS AQUI",addItemToCart)
 
   return (
     <Fragment>
@@ -73,7 +86,7 @@ export const CartPage: React.FC<{
                     if (typeof item.product === 'object') {
                       const {
                         quantity,
-                        product,
+                        product, 
                         product: { id, title, meta, stripeProductID },
                       } = item
 
@@ -83,11 +96,13 @@ export const CartPage: React.FC<{
 
                       return (
                         <CartItem
-                          product={product}
+                          key={id}
+                          product={product} 
                           title={title}
                           metaImage={metaImage}
                           qty={quantity}
                           addItemToCart={addItemToCart}
+                          size={selectedSize}
                         />
                       )
                     }

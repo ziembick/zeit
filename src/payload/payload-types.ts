@@ -91,7 +91,7 @@ export interface Page {
         invertBackground?: boolean | null;
         columns?:
           | {
-              size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+              size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
               richText: {
                 [k: string]: unknown;
               }[];
@@ -228,7 +228,7 @@ export interface Product {
             invertBackground?: boolean | null;
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -322,7 +322,7 @@ export interface Product {
             invertBackground?: boolean | null;
             columns?:
               | {
-                  size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
+                  size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];

@@ -15,8 +15,8 @@ const columnFields: Field[] = [
         label: 'One Third',
       },
       {
-        value: 'half',
-        label: 'Half',
+        value: 'M',
+        label: 'M',
       },
       {
         value: 'twoThirds',
@@ -25,6 +25,10 @@ const columnFields: Field[] = [
       {
         value: 'full',
         label: 'Full',
+      },
+      {
+        value: 'GG',
+        label: 'GG',
       },
     ],
   },

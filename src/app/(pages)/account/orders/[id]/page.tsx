@@ -14,11 +14,14 @@ import { mergeOpenGraph } from '../../../../_utilities/mergeOpenGraph'
 import classes from './index.module.scss'
 
 export default async function Order({ params: { id } }) {
+  
   const { token } = await getMeUser({
     nullUserRedirect: `/login?error=${encodeURIComponent(
       'You must be logged in to view this order.',
     )}&redirect=${encodeURIComponent(`/order/${id}`)}`,
   })
+
+  // const selectedSize = localStorage.getItem('selectedSize')
 
   let order: Order | null = null
 
@@ -46,13 +49,13 @@ export default async function Order({ params: { id } }) {
   return (
     <div>
       <h5>
-        {`Order`}
+        {`Pedidos`}
         <span className={classes.id}>{` ${order.id}`}</span>
       </h5>
       <div className={classes.itemMeta}>
         <p>{`ID: ${order.id}`}</p>
         <p>{`Payment Intent: ${order.stripePaymentIntentID}`}</p>
-        <p>{`Ordered On: ${formatDateTime(order.createdAt)}`}</p>
+        <p>{`Compra efetuada: ${formatDateTime(order.createdAt)}`}</p>
         <p className={classes.total}>
           {'Total: '}
           {new Intl.NumberFormat('en-US', {
@@ -104,8 +107,7 @@ export default async function Order({ params: { id } }) {
                         {title}
                       </Link>
                     </h6>
-                    <p>{`Quantity: ${quantity}`}</p>
-                    {/* <p>{`Tamanho: ${size}`}</p> */}
+                    <p>{`Quantidade: ${quantity}`}</p>
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>
