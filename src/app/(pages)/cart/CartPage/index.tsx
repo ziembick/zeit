@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { Page, Product, Settings } from '../../../../payload/payload-types'
@@ -19,6 +19,7 @@ import CartItem from '../CartItem'
 export const CartPage: React.FC<{
   settings: Settings
   page: Page
+  
 }> = props => {
   const { settings } = props
   const { productsPage } = settings || {}
@@ -35,8 +36,12 @@ export const CartPage: React.FC<{
 
   const handleSizeSelected = (size: string) => {
     setSelectedSize(size)
-    size
+    console.log("Selected size in Cartpage:", selectedSize)
   }
+
+  useEffect(() => {
+    console.log("Tamanho selecionado33:", selectedSize)
+  }, [selectedSize])
 
   // console.log(" TESTAS AQUI",addItemToCart)
 

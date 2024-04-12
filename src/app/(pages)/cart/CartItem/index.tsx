@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import classes from './index.module.scss'
 import Link from 'next/link'
@@ -12,6 +12,11 @@ import { Size } from '../../../_components/Size'
 
 const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
   const selectedSize = localStorage.getItem('selectedSize')
+  // const [selectedSize, setSelectedSize] = useState<string>()
+
+  useEffect(() => {
+    console.log("Tamanho selecionado22:", selectedSize)
+  }, [selectedSize])
 
   const [quantity, setQuantity] = useState(qty)
 

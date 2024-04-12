@@ -15,6 +15,8 @@ import classes from './index.module.scss'
 import { Blocks } from '../../_components/Blocks'
 import { Size } from '../../_components/Size'
 
+
+
 export const ProductHero: React.FC<{
   product: Product
 }> = ({ product }) => {
@@ -73,7 +75,7 @@ export const ProductHero: React.FC<{
 
         <Price product={product} button={false} />
         <p>Size:</p>
-         <Size product={product} onSizeSelected={handleSizeClick} /> 
+        <Size product={product} onSizeSelected={handleSizeClick}/>
         
         <div className={classes.description}>
           <h6>Descrição</h6>
@@ -87,7 +89,6 @@ export const ProductHero: React.FC<{
     </Gutter>
   )
 }
-
 
 
 
