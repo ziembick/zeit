@@ -34,10 +34,10 @@ export const CartPage: React.FC<{
 
   const [selectedSize, setSelectedSize] = useState<string>('')
 
-  const handleSizeSelected = (size: string) => {
-    setSelectedSize(size)
-    console.log("Selected size in Cartpage:", selectedSize)
-  }
+  // const handleSizeSelected = (size: string) => {
+  //   setSelectedSize(size)
+  //   console.log("Selected size in Cartpage:", selectedSize)
+  // }
 
   useEffect(() => {
     console.log("Tamanho selecionado33:", selectedSize)

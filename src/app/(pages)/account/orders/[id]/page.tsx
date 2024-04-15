@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -12,6 +12,7 @@ import { getMeUser } from '../../../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../../../_utilities/mergeOpenGraph'
 
 import classes from './index.module.scss'
+import { Size } from '../../../../_components/Size'
 
 export default async function Order({ params: { id } }) {
   
@@ -21,7 +22,6 @@ export default async function Order({ params: { id } }) {
     )}&redirect=${encodeURIComponent(`/order/${id}`)}`,
   })
 
-  // const selectedSize = localStorage.getItem('selectedSize')
 
   let order: Order | null = null
 
@@ -108,6 +108,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h6>
                     <p>{`Quantidade: ${quantity}`}</p>
+                    <p>{`Tamanho: ${product.layout.filter((l) => l.blockType == "content")}`}</p>
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>

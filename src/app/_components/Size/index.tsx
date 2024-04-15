@@ -14,27 +14,47 @@ export const Size: React.FC<{
 }> = props => {
   const { product, onSizeSelected } = props
   const testLayout = product.layout.filter(L => L.blockType == 'content')
-  const gloriaAmem = testLayout[0]['columns']
 
-  const handleSizeClick = (size: string) => {
-    setSelectedSize(size)
-    onSizeSelected(size)
+  console.log('aqui')
+  console.log(testLayout)
+  console.log(testLayout[0])
+
+  console.log("array array")
+  console.log(Array.isArray(testLayout))
+
+  console.log('length')
+  console.log(testLayout.length)
+
+  if (Array.isArray(testLayout) && testLayout.length && testLayout[0] && testLayout[0]['columns'] && testLayout[0]['columns'].length) {
+    const gloriaAmem = testLayout[0]['columns']
+    const handleSizeClick = (size: string) => {
+      setSelectedSize(size)
+      onSizeSelected(size)
+    }
+
+    const [selectedSize, setSelectedSize] = useState<any>('')
+
+    useEffect(() => {
+      console.log('Tamanho selecionado:', selectedSize)
+    }, [selectedSize])
+
+
+
+    return (
+      <>
+        <p>Tamanho</p>
+        <div className={classes.actions}>
+          {gloriaAmem.map(item => (
+            <Button key={item.size} onClick={() => handleSizeClick(item.size)}>
+              {item.size}
+            </Button>
+          ))}
+        </div>
+      </>
+    )
   }
-
-  const [selectedSize, setSelectedSize] = useState<any>('')
-
-  useEffect(() => {
-    console.log('Tamanho selecionado:', selectedSize)
-  }, [selectedSize])
-
   return (
-    <div className={classes.actions}>
-      {gloriaAmem.map(item => (
-        <Button key={item.size} onClick={() => handleSizeClick(item.size)}>
-          {item.size}
-        </Button>
-      ))}
-    </div>
+    <></>
   )
 }
 

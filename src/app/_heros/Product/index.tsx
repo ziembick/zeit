@@ -37,6 +37,7 @@ export const ProductHero: React.FC<{
     localStorage.setItem('selectedSize', size)
   }
 
+  
 
   return (
     <Gutter className={classes.productHero}>
@@ -74,7 +75,7 @@ export const ProductHero: React.FC<{
         </div>
 
         <Price product={product} button={false} />
-        <p>Size:</p>
+        {/* <p>Size:</p> */}
         <Size product={product} onSizeSelected={handleSizeClick}/>
         
         <div className={classes.description}>
