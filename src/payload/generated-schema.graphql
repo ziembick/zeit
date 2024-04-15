@@ -4870,6 +4870,7 @@ scalar EmailAddress @specifiedBy(url: "https://html.spec.whatwg.org/multipage/in
 type Order_Items {
   product: Product
   price: Float
+  size: String
   quantity: Float
   id: String
 }
@@ -4894,6 +4895,7 @@ input Order_where {
   total: Order_total_operator
   items__product: Order_items__product_operator
   items__price: Order_items__price_operator
+  items__size: Order_items__size_operator
   items__quantity: Order_items__quantity_operator
   items__id: Order_items__id_operator
   updatedAt: Order_updatedAt_operator
@@ -4947,6 +4949,17 @@ input Order_items__price_operator {
   greater_than: Float
   less_than_equal: Float
   less_than: Float
+  exists: Boolean
+}
+
+input Order_items__size_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
   exists: Boolean
 }
 
@@ -5010,6 +5023,7 @@ input Order_where_and {
   total: Order_total_operator
   items__product: Order_items__product_operator
   items__price: Order_items__price_operator
+  items__size: Order_items__size_operator
   items__quantity: Order_items__quantity_operator
   items__id: Order_items__id_operator
   updatedAt: Order_updatedAt_operator
@@ -5025,6 +5039,7 @@ input Order_where_or {
   total: Order_total_operator
   items__product: Order_items__product_operator
   items__price: Order_items__price_operator
+  items__size: Order_items__size_operator
   items__quantity: Order_items__quantity_operator
   items__id: Order_items__id_operator
   updatedAt: Order_updatedAt_operator
@@ -5147,6 +5162,7 @@ type OrdersDocAccessFields_items_Delete {
 type OrdersDocAccessFields_items_Fields {
   product: OrdersDocAccessFields_items_product
   price: OrdersDocAccessFields_items_price
+  size: OrdersDocAccessFields_items_size
   quantity: OrdersDocAccessFields_items_quantity
   id: OrdersDocAccessFields_items_id
 }
@@ -5194,6 +5210,29 @@ type OrdersDocAccessFields_items_price_Update {
 }
 
 type OrdersDocAccessFields_items_price_Delete {
+  permission: Boolean!
+}
+
+type OrdersDocAccessFields_items_size {
+  create: OrdersDocAccessFields_items_size_Create
+  read: OrdersDocAccessFields_items_size_Read
+  update: OrdersDocAccessFields_items_size_Update
+  delete: OrdersDocAccessFields_items_size_Delete
+}
+
+type OrdersDocAccessFields_items_size_Create {
+  permission: Boolean!
+}
+
+type OrdersDocAccessFields_items_size_Read {
+  permission: Boolean!
+}
+
+type OrdersDocAccessFields_items_size_Update {
+  permission: Boolean!
+}
+
+type OrdersDocAccessFields_items_size_Delete {
   permission: Boolean!
 }
 
@@ -9896,6 +9935,7 @@ type OrdersFields_items_Delete {
 type OrdersFields_items_Fields {
   product: OrdersFields_items_product
   price: OrdersFields_items_price
+  size: OrdersFields_items_size
   quantity: OrdersFields_items_quantity
   id: OrdersFields_items_id
 }
@@ -9943,6 +9983,29 @@ type OrdersFields_items_price_Update {
 }
 
 type OrdersFields_items_price_Delete {
+  permission: Boolean!
+}
+
+type OrdersFields_items_size {
+  create: OrdersFields_items_size_Create
+  read: OrdersFields_items_size_Read
+  update: OrdersFields_items_size_Update
+  delete: OrdersFields_items_size_Delete
+}
+
+type OrdersFields_items_size_Create {
+  permission: Boolean!
+}
+
+type OrdersFields_items_size_Read {
+  permission: Boolean!
+}
+
+type OrdersFields_items_size_Update {
+  permission: Boolean!
+}
+
+type OrdersFields_items_size_Delete {
   permission: Boolean!
 }
 
@@ -12305,6 +12368,7 @@ input mutationOrderInput {
 input mutationOrder_ItemsInput {
   product: String
   price: Float
+  size: String
   quantity: Float
   id: String
 }
@@ -12321,6 +12385,7 @@ input mutationOrderUpdateInput {
 input mutationOrderUpdate_ItemsInput {
   product: String
   price: Float
+  size: String
   quantity: Float
   id: String
 }

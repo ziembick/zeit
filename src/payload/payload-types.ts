@@ -404,6 +404,7 @@ export interface Order {
     | {
         product: string | Product;
         price?: number | null;
+        size?: string | null;
         quantity?: number | null;
         id?: string | null;
       }[]

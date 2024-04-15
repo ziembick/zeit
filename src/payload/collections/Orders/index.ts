@@ -66,6 +66,10 @@ export const Orders: CollectionConfig = {
           min: 0,
         },
         {
+          name: 'size',
+          type: 'text',
+        },
+        {
           name: 'quantity',
           type: 'number',
           min: 0,
