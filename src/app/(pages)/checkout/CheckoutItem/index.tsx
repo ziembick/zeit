@@ -8,15 +8,7 @@ import classes from './index.module.scss'
 import { Size } from '../../../_components/Size'
 import { useEffect, useState } from 'react'
 
-export const CheckoutItem = ({ product, title, metaImage, quantity, index}) => {
-  const selectedSize = localStorage.getItem('selectedSize')
-  // const [selectedSize, setSelectedSize] = useState(product)
-
-  // useEffect(() => {
-  //   localStorage.getItem(selectedSize)
-  //   console.log("aaaaaaaaa:", selectedSize)
-  // }, [selectedSize])
-
+export const CheckoutItem = ({ product, title, metaImage, quantity, index, size}) => {
   return (
     <li className={classes.item} key={index}>
       <Link href={`/products/${product.slug}`} className={classes.mediaWrapper}>
@@ -32,7 +24,7 @@ export const CheckoutItem = ({ product, title, metaImage, quantity, index}) => {
           <Price product={product} button={false} />
         </div>
         <p className={classes.quantity}>x{quantity}</p>
-        <p className={classes.quantity}>{`Tamanho: ${selectedSize}`}</p>
+        <p className={classes.quantity}>{`Tamanho: ${size}`}</p>
       </div>
 
       <div className={classes.subtotal}>

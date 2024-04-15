@@ -24,26 +24,9 @@ export const CartPage: React.FC<{
   const { settings } = props
   const { productsPage } = settings || {}
 
-  // const [cartItems, setcartItems] = useState<CartItemType[]>(cart?.items || [])
-
   const { user } = useAuth()
 
   const { cart, cartIsEmpty, addItemToCart, cartTotal, hasInitializedCart} = useCart()
-
-  console.log("PAULO2")
-
-  const [selectedSize, setSelectedSize] = useState<string>('')
-
-  // const handleSizeSelected = (size: string) => {
-  //   setSelectedSize(size)
-  //   console.log("Selected size in Cartpage:", selectedSize)
-  // }
-
-  useEffect(() => {
-    console.log("Tamanho selecionado33:", selectedSize)
-  }, [selectedSize])
-
-  // console.log(" TESTAS AQUI",addItemToCart)
 
   return (
     <Fragment>
@@ -91,7 +74,8 @@ export const CartPage: React.FC<{
                     if (typeof item.product === 'object') {
                       const {
                         quantity,
-                        product, 
+                        product,
+                        size, 
                         product: { id, title, meta, stripeProductID },
                       } = item
 
@@ -107,7 +91,7 @@ export const CartPage: React.FC<{
                           metaImage={metaImage}
                           qty={quantity}
                           addItemToCart={addItemToCart}
-                          size={selectedSize}
+                          size={size}
                         />
                       )
                     }

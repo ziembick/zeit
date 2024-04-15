@@ -107,6 +107,7 @@ export const CheckoutPage: React.FC<{
               if (typeof item.product === 'object') {
                 const {
                   quantity,
+                  size,
                   product,
                   product: { title, meta },
                 } = item
@@ -115,6 +116,8 @@ export const CheckoutPage: React.FC<{
 
                 const metaImage = meta?.image
 
+                console.log("estou printando o size no checkout", size)
+                
                 return (
                   <Fragment key={index}>
                     <CheckoutItem
@@ -123,6 +126,7 @@ export const CheckoutPage: React.FC<{
                       metaImage={metaImage}
                       quantity={quantity}
                       index={index}
+                      size={size}
                     />
                   </Fragment>
                 )

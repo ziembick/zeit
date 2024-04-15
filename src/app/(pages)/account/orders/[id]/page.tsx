@@ -12,7 +12,6 @@ import { getMeUser } from '../../../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../../../_utilities/mergeOpenGraph'
 
 import classes from './index.module.scss'
-import { Size } from '../../../../_components/Size'
 
 export default async function Order({ params: { id } }) {
   
@@ -108,7 +107,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h6>
                     <p>{`Quantidade: ${quantity}`}</p>
-                    <p>{`Tamanho: ${product.layout.filter((l) => l.blockType == "content")}`}</p>
+                    <p>{`Tamanho: oioi`}</p>
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>

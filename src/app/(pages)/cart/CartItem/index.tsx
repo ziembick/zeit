@@ -11,12 +11,6 @@ import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
 import { Size } from '../../../_components/Size'
 
 const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
-  const selectedSize = localStorage.getItem('selectedSize')
-  // const [selectedSize, setSelectedSize] = useState<string>()
-
-  useEffect(() => {
-    console.log("Tamanho selecionado22:", selectedSize)
-  }, [selectedSize])
 
   const [quantity, setQuantity] = useState(qty)
 
@@ -51,7 +45,7 @@ const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
         <div className={classes.titleWrapper}>
           <h6>{title}</h6>
           {/* <h6>OIOI:{size}</h6> */}
-          <h6>{`Tamanho: ${selectedSize}`}</h6>
+          <h6>{`Tamanho: ${size}`}</h6>
           {/* AQUI */}
           <Price product={product} button={false} />
         </div>

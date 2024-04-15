@@ -205,10 +205,13 @@ export const CartProvider = props => {
 
   // this method can be used to add new items AND update existing ones
   const addItemToCart = useCallback(incomingItem => {
+    console.log("to pintando additemcart")
+    console.log(incomingItem)
     dispatchCart({
       type: 'ADD_ITEM',
       payload: incomingItem,
     })
+
   }, [])
 
   const deleteItemFromCart = useCallback((incomingProduct: Product) => {

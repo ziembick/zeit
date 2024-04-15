@@ -9,6 +9,7 @@
 export type CartItems =
   | {
       product?: (string | null) | Product;
+      size?: string | null;
       quantity?: number | null;
       id?: string | null;
     }[]
