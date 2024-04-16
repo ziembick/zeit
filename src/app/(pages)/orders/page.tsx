@@ -21,6 +21,8 @@ export default async function Orders() {
     )}&redirect=${encodeURIComponent('/orders')}`,
   })
 
+  
+
   let orders: Order[] | null = null
 
   try {

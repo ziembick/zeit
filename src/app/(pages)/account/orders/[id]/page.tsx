@@ -24,6 +24,9 @@ export default async function Order({ params: { id } }) {
 
   let order: Order | null = null
 
+  console.log("valor token")
+  console.log(token)
+
   try {
     order = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders/${id}`, {
       headers: {
@@ -44,6 +47,7 @@ export default async function Order({ params: { id } }) {
   if (!order) {
     notFound()
   }
+ 
 
   return (
     <div>
@@ -69,6 +73,7 @@ export default async function Order({ params: { id } }) {
           if (typeof item.product === 'object') {
             const {
               quantity,
+              size,
               product,
               product: { id, title, meta, stripeProductID },
             } = item
@@ -107,7 +112,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h6>
                     <p>{`Quantidade: ${quantity}`}</p>
-                    <p>{`Tamanho: oioi`}</p>
+                    <p>{`Tamanho: ${size}`}</p>
                     <Price product={product} button={false} quantity={quantity} />
                   </div>
                 </div>

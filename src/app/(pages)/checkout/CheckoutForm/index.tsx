@@ -54,9 +54,10 @@ export const CheckoutForm: React.FC<{}> = () => {
               body: JSON.stringify({
                 total: cartTotal.raw,
                 stripePaymentIntentID: paymentIntent.id,
-                items: (cart?.items || [])?.map(({ product, quantity }) => ({
+                items: (cart?.items || [])?.map(({ product, quantity, size }) => ({
                   product: typeof product === 'string' ? product : product.id,
                   quantity,
+                  size: size,
                   price:
                     typeof product === 'object'
                       ? priceFromJSON(product.priceJSON, 1, true)
@@ -64,6 +65,20 @@ export const CheckoutForm: React.FC<{}> = () => {
                 })),
               }),
             })
+
+            console.log('stingiiiigy')
+            console.log(JSON.stringify({
+              total: cartTotal.raw,
+              stripePaymentIntentID: paymentIntent.id,
+              items: (cart?.items || [])?.map(({ product, quantity }) => ({
+                product: typeof product === 'string' ? product : product.id,
+                quantity,
+                price:
+                  typeof product === 'object'
+                    ? priceFromJSON(product.priceJSON, 1, true)
+                    : undefined,
+              })),
+            }))
 
             if (!orderReq.ok) throw new Error(orderReq.statusText || 'Something went wrong.')
 
