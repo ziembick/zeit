@@ -35,6 +35,9 @@ export const AddToCartButton: React.FC<{
   
   const [finalItem, setFinalItem] = useState(product)
 
+  // console.log("prind addto cart")
+  // console.log(selectedSize)
+
   return (
     <Button
       href={isInCart ? '/cart' : undefined}
@@ -54,10 +57,10 @@ export const AddToCartButton: React.FC<{
         !isInCart
           ? () => {
               addItemToCart({
-                product,
-                quantity,
+                product: product,
+                size: selectedSize,
+                quantity: quantity,
               })
-
               router.push('/cart')
             }
           : undefined

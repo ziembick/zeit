@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import { Page, Product, Settings } from '../../../../payload/payload-types'
@@ -19,26 +19,14 @@ import CartItem from '../CartItem'
 export const CartPage: React.FC<{
   settings: Settings
   page: Page
+  
 }> = props => {
   const { settings } = props
   const { productsPage } = settings || {}
 
-  // const [cartItems, setcartItems] = useState<CartItemType[]>(cart?.items || [])
-
   const { user } = useAuth()
 
   const { cart, cartIsEmpty, addItemToCart, cartTotal, hasInitializedCart} = useCart()
-
-  console.log("PAULO2")
-
-  const [selectedSize, setSelectedSize] = useState<string>('')
-
-  const handleSizeSelected = (size: string) => {
-    setSelectedSize(size)
-    size
-  }
-
-  // console.log(" TESTAS AQUI",addItemToCart)
 
   return (
     <Fragment>
@@ -86,7 +74,8 @@ export const CartPage: React.FC<{
                     if (typeof item.product === 'object') {
                       const {
                         quantity,
-                        product, 
+                        product,
+                        size, 
                         product: { id, title, meta, stripeProductID },
                       } = item
 
@@ -102,7 +91,7 @@ export const CartPage: React.FC<{
                           metaImage={metaImage}
                           qty={quantity}
                           addItemToCart={addItemToCart}
-                          size={selectedSize}
+                          size={size}
                         />
                       )
                     }

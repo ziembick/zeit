@@ -111,6 +111,10 @@ const Users: CollectionConfig = {
               relationTo: 'products',
             },
             {
+              name: 'size',
+              type: 'text',
+            },
+            {
               name: 'quantity',
               type: 'number',
               min: 0,
