@@ -82,7 +82,7 @@ export const ProductHero: React.FC<{
         </div>
 
         <AddToCartButton product={product} className={classes.addToCartButton} selectedSize={selectedSize}/>
-        <p>Tamanho selecionado: {selectedSize}</p>
+        {/* <p>Tamanho selecionado: {selectedSize}</p> */}
       </div>
     </Gutter>
   )
