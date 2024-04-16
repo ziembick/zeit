@@ -24,7 +24,7 @@ export const CheckoutItem = ({ product, title, metaImage, quantity, index, size}
           <Price product={product} button={false} />
         </div>
         <p className={classes.quantity}>x{quantity}</p>
-        <p className={classes.quantity}>{`Tamanho: ${size}`}</p>
+        {size && <p className={classes.quantity}>{`Tamanho: ${size}`}</p>}
       </div>
 
       <div className={classes.subtotal}>

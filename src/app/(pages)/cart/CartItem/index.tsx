@@ -45,7 +45,7 @@ const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
         <div className={classes.titleWrapper}>
           <h6>{title}</h6>
           {/* <h6>OIOI:{size}</h6> */}
-          <h6>{`Tamanho: ${size}`}</h6>
+          {size && <h6>{`Tamanho: ${size}`}</h6>}
           {/* AQUI */}
           <Price product={product} button={false} />
         </div>
