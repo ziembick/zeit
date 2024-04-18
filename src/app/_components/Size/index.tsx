@@ -6,7 +6,8 @@ import { Product } from '../../../payload/payload-types'
 
 import classes from './index.module.scss'
 import { Button } from 'payload/components'
-import { ContentBlock } from '../../_blocks/Content'
+
+import { toast } from 'react-toastify'
 
 export const Size: React.FC<{
   product: Product
@@ -20,14 +21,20 @@ export const Size: React.FC<{
     const handleSizeClick = (size: string) => {
       setSelectedSize(size)
       onSizeSelected(size)
+      setIsSizeSelected(true)
+      // showAlert(size)
     }
 
     const [selectedSize, setSelectedSize] = useState<any>('')
+    const [isSizeSelected, setIsSizeSelected] = useState(false)
 
     useEffect(() => {
       console.log('Tamanho selecionado:', selectedSize)
     }, [selectedSize])
 
+    // const showAlert = (size: string) => {
+    //   alert(`Tamanho ${size} selecionado`)
+    // }
 
 
     return (

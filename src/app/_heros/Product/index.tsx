@@ -14,8 +14,7 @@ import RichText from '../../_components/RichText'
 import classes from './index.module.scss'
 import { Blocks } from '../../_components/Blocks'
 import { Size } from '../../_components/Size'
-
-
+import { toast } from 'react-toastify'
 
 export const ProductHero: React.FC<{
   product: Product
@@ -25,17 +24,27 @@ export const ProductHero: React.FC<{
     stripeProductID,
     title,
     categories,
-    meta: { image: metaImage, description} = {},
+    meta: { image: metaImage, description } = {},
   } = product
 
-
   const [selectedSize, setSelectedSize] = useState<string>('')
+  const [isSizeSelected, setIsSizeSelected] = useState<boolean>(false)
+  const hasSizes = product.layout.some(
+    (L) => L.blockType === 'content' && L.columns && L.columns.length
+  );
 
   const handleSizeClick = (size: string) => {
     setSelectedSize(size)
+    setIsSizeSelected(true)
   }
 
-  
+  const handleAddToCart  = () => {
+    if (hasSizes && !isSizeSelected) {
+      alert('Por favor, selecione um tamanho antes de prosseguir')
+      return false;
+    }
+    return true
+  }
 
   return (
     <Gutter className={classes.productHero}>
@@ -73,16 +82,19 @@ export const ProductHero: React.FC<{
         </div>
 
         <Price product={product} button={false} />
-        <Size product={product} onSizeSelected={handleSizeClick}/>
-        
+        <Size product={product} onSizeSelected={handleSizeClick} />
+
         <div className={classes.description}>
           <h6>Descrição</h6>
           <p>{description}</p>
-          
         </div>
 
-        <AddToCartButton product={product} className={classes.addToCartButton} selectedSize={selectedSize}/>
-        {/* <p>Tamanho selecionado: {selectedSize}</p> */}
+        <AddToCartButton
+          product={product}
+          className={classes.addToCartButton}
+          selectedSize={selectedSize}
+          onAddToCart={handleAddToCart}
+        />
       </div>
     </Gutter>
   )
