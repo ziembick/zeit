@@ -8,6 +8,7 @@ import { useCart } from '../../_providers/Cart'
 import { Button, Props } from '../Button'
 
 import classes from './index.module.scss'
+import { toast } from 'react-toastify'
 
 export const AddToCartButton: React.FC<{
   product: Product
@@ -15,13 +16,15 @@ export const AddToCartButton: React.FC<{
   className?: string
   appearance?: Props['appearance']
   selectedSize?: any
+  onAddToCart?: () => boolean | void
 }> = props => {
   
-  const { product, quantity = 1, className, appearance = 'primary', selectedSize } = props
+  const { product, quantity = 1, className, appearance = 'primary', selectedSize, onAddToCart } = props
 
   const { cart, addItemToCart, isProductInCart, hasInitializedCart } = useCart()
 
   const [isInCart, setIsInCart] = useState<boolean>()
+  const [isSizeSelected, setIsSizeSelected] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -35,8 +38,7 @@ export const AddToCartButton: React.FC<{
   
   const [finalItem, setFinalItem] = useState(product)
 
-  // console.log("prind addto cart")
-  // console.log(selectedSize)
+  const hasSizes = product.layout.some(L => L.blockType === 'content' && L.columns && L.columns.length)
 
   return (
     <Button
@@ -53,18 +55,21 @@ export const AddToCartButton: React.FC<{
       ]
         .filter(Boolean)
         .join(' ')}
-      onClick={
-        !isInCart
-          ? () => {
-              addItemToCart({
-                product: product,
-                size: selectedSize,
-                quantity: quantity,
-              })
-              router.push('/cart')
-            }
-          : undefined
-      }
+        onClick={
+          !isInCart
+            ? () => {
+                const allowAddToCart = onAddToCart ? onAddToCart() : true;
+                if (allowAddToCart) {
+                  addItemToCart({
+                    product: product,
+                    size: selectedSize,
+                    quantity: quantity,
+                  });
+                  router.push('/cart');
+                }
+              }
+            : undefined
+        }
     />
   )
 }
