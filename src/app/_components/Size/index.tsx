@@ -22,7 +22,6 @@ export const Size: React.FC<{
       setSelectedSize(size)
       onSizeSelected(size)
       setIsSizeSelected(true)
-      // showAlert(size)
     }
 
     const [selectedSize, setSelectedSize] = useState<any>('')
@@ -32,19 +31,14 @@ export const Size: React.FC<{
       console.log('Tamanho selecionado:', selectedSize)
     }, [selectedSize])
 
-    // const showAlert = (size: string) => {
-    //   alert(`Tamanho ${size} selecionado`)
-    // }
-
-
     return (
       <>
         <p>Tamanho</p>
         <div className={classes.actions}>
           {gloriaAmem.map(item => (
-            <Button key={item.size} onClick={() => handleSizeClick(item.size)}>
+            <button key={item.size} onClick={() => handleSizeClick(item.size)}>
               {item.size}
-            </Button>
+            </button>
           ))}
         </div>
       </>

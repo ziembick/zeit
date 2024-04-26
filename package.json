@@ -32,6 +32,8 @@
     "@payloadcms/richtext-slate": "^1.0.0",
     "@stripe/react-stripe-js": "^1.16.3",
     "@stripe/stripe-js": "^1.46.0",
+    "and": "^0.0.3",
+    "body": "^5.1.0",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "escape-html": "^1.0.3",
@@ -40,12 +42,13 @@
     "payload": "^2.0.7",
     "payload-admin-bar": "^1.0.6",
     "qs": "6.11.2",
+    "raw": "^0.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "7.45.4",
     "react-router-dom": "5.3.4",
     "react-toastify": "^10.0.5",
-    "stripe": "^10.2.0"
+    "stripe": "^10.17.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
