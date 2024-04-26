@@ -134,7 +134,7 @@ export const CheckoutPage: React.FC<{
               return null
             })}
             <div className={classes.orderTotal}>
-              <p>Order Total</p>
+              <p>Total do pedido</p>
               <p>{cartTotal.formatted}</p>
             </div>
           </ul>
@@ -183,6 +183,7 @@ export const CheckoutPage: React.FC<{
             <CheckoutForm />
           </Elements>
         </Fragment>
+        
       )}
     </Fragment>
   )
