@@ -47,7 +47,7 @@ export const cartPage: Partial<Page> = {
       blockType: 'content',
       columns: [
         {
-          size: 'twoThirds',
+          size: 'XG',
           link: {
             type: 'reference',
             url: '',

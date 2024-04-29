@@ -92,7 +92,7 @@ export interface Page {
         invertBackground?: boolean | null;
         columns?:
           | {
-              size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
+              size?: ('oneThird' | 'M' | 'XG' | 'full' | 'P' | 'GG' | 'G') | null;
               richText: {
                 [k: string]: unknown;
               }[];
@@ -229,7 +229,7 @@ export interface Product {
             invertBackground?: boolean | null;
             columns?:
               | {
-                  size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
+                  size?: ('oneThird' | 'M' | 'XG' | 'full' | 'P' | 'GG' | 'G') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];
@@ -323,7 +323,7 @@ export interface Product {
             invertBackground?: boolean | null;
             columns?:
               | {
-                  size?: ('oneThird' | 'M' | 'twoThirds' | 'full' | 'GG') | null;
+                  size?: ('oneThird' | 'M' | 'XG' | 'full' | 'P' | 'GG' | 'G') | null;
                   richText: {
                     [k: string]: unknown;
                   }[];

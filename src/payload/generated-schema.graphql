@@ -679,9 +679,11 @@ type Content_Columns {
 enum Content_Columns_size {
   oneThird
   M
-  twoThirds
+  XG
   full
+  P
   GG
+  G
 }
 
 type Content_Columns_Link {

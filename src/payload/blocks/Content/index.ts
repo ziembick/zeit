@@ -19,16 +19,24 @@ const columnFields: Field[] = [
         label: 'M',
       },
       {
-        value: 'twoThirds',
-        label: 'Two Thirds',
+        value: 'XG',
+        label: 'XG',
       },
       {
         value: 'full',
         label: 'Full',
       },
       {
+        value: 'P',
+        label: 'P',
+      },
+      {
         value: 'GG',
         label: 'GG',
+      },
+      {
+        value: 'G',
+        label: 'G',
       },
     ],
   },
