@@ -14,10 +14,10 @@ export const Size: React.FC<{
   onSizeSelected: (size: string) => void
 }> = props => {
   const { product, onSizeSelected } = props
-  const testLayout = product.layout.filter(L => L.blockType == 'content')
+  const contentLayout = product.layout.filter(L => L.blockType == 'content')
 
-  if (Array.isArray(testLayout) && testLayout.length && testLayout[0] && testLayout[0]['columns'] && testLayout[0]['columns'].length) {
-    const gloriaAmem = testLayout[0]['columns']
+  if (Array.isArray(contentLayout) && contentLayout.length && contentLayout[0] && contentLayout[0]['columns'] && contentLayout[0]['columns'].length) {
+    const selectColumns = contentLayout[0]['columns']
     const handleSizeClick = (size: string) => {
       setSelectedSize(size)
       onSizeSelected(size)
@@ -35,10 +35,10 @@ export const Size: React.FC<{
       <>
         <p>Tamanho</p>
         <div className={classes.actions}>
-          {gloriaAmem.map(item => (
-            <button key={item.size} onClick={() => handleSizeClick(item.size)}>
+          {selectColumns.map(item => (
+            <Button key={item.size} onClick={() => handleSizeClick(item.size)}>
               {item.size}
-            </button>
+            </Button>
           ))}
         </div>
       </>

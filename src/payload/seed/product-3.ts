@@ -15,7 +15,7 @@ export const product3: Partial<Product> = {
       blockType: 'content',
       columns: [
         {
-          size: 'twoThirds',
+          size: 'XG',
           richText: [
             {
               children: [
@@ -47,7 +47,7 @@ export const product3: Partial<Product> = {
       blockType: 'content',
       columns: [
         {
-          size: 'twoThirds',
+          size: 'XG',
           richText: [
             {
               children: [
