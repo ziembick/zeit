@@ -79,9 +79,6 @@ export const CartPage: React.FC<{
                         product: { id, title, meta, stripeProductID },
                       } = item
 
-                      console.log("aquii")
-                      console.log(stripeProductID)
-
                       const isLast = index === (cart?.items?.length || 0) - 1
 
                       const metaImage = meta?.image
