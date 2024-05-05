@@ -71,6 +71,7 @@ export const CartPage: React.FC<{
                 {/* CART ITEM LIST */}
                 <ul className={classes.itemsList}>
                   {cart?.items?.map((item, index) => {
+                    console.log("item", item)
                     if (typeof item.product === 'object') {
                       const {
                         quantity,

@@ -106,6 +106,7 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
 
 
       if (typeof newIndexinCart === 'number' && newIndexinCart > -1) {
+        console.log("quantity", withAddedItem[newIndexinCart].quantity)
         withAddedItem[newIndexinCart] = {
           ...withAddedItem[newIndexinCart],
           quantity: withAddedItem[newIndexinCart].quantity + incomingItem.quantity
