@@ -7,8 +7,6 @@ import { Product } from '../../../payload/payload-types'
 import classes from './index.module.scss'
 import { Button } from 'payload/components'
 
-import { toast } from 'react-toastify'
-
 export const Size: React.FC<{
   product: Product
   onSizeSelected: (size: string) => void
@@ -24,7 +22,7 @@ export const Size: React.FC<{
       setIsSizeSelected(true)
     }
 
-    const [selectedSize, setSelectedSize] = useState<any>('')
+    const [selectedSize, setSelectedSize] = useState<string>('')
     const [isSizeSelected, setIsSizeSelected] = useState(false)
 
     useEffect(() => {

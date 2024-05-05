@@ -68,7 +68,7 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
       const { payload: incomingItem } = action
       const productId =
         typeof incomingItem.product === 'string' ? incomingItem.product : incomingItem?.product?.id
-
+        
         // const hasValidProductSize = (incomingItem: { product?: { size?: string } }) => {
         //   const validSizes: Set<string> = new Set(['oneThird', 'half', 'twoThirds', 'full']);
         
@@ -76,7 +76,7 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
         //   return incomingItem.product && typeof incomingItem.product.size === 'string' && validSizes.has(incomingItem.product.size);
         // }
         
-      const indexInCart = cart?.items?.findIndex(({ product }) =>
+      const indexInCart = cart?.items?.findIndex(({ product, size }) =>
         typeof product === 'string' ? product === productId : product?.id === productId,
       ) // eslint-disable-line function-paren-newline
 
@@ -92,8 +92,7 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
           ...withAddedItem[indexInCart],
           quantity: (incomingItem.quantity || 0) > 0 ? incomingItem.quantity : undefined,
         }
-      }
-
+      }      
       return {
         ...cart,
         items: withAddedItem,

@@ -195,7 +195,9 @@ export const CartProvider = props => {
             typeof product === 'string'
               ? product === incomingProduct.id
               : product?.id === incomingProduct.id,
+              console.log('AQUII AQUI AQUI AQUI AQUI', incomingProduct.id) // console.log id
           ), // eslint-disable-line function-paren-newline
+          
         )
       }
       return isInCart
@@ -243,9 +245,9 @@ export const CartProvider = props => {
       }, 0) || 0
 
     setTotal({
-      formatted: (newTotal / 100).toLocaleString('en-US', {
+      formatted: (newTotal / 100).toLocaleString('pt-BR', {
         style: 'currency',
-        currency: 'USD',
+        currency: 'BRL',
       }),
       raw: newTotal,
     })
