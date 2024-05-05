@@ -45,7 +45,7 @@ export const ProductHero: React.FC<{
     }
     return true
   }
-
+  console.log("aquia quiaquiaquiauqi",product.title)
   return (
     <Gutter className={classes.productHero}>
       <div className={classes.mediaWrapper}>
