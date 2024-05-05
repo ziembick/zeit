@@ -42,22 +42,20 @@ export const AddToCartButton: React.FC<{
 
   return (
     <Button
-      href={isInCart ? '/cart' : undefined}
-      type={!isInCart ? 'button' : undefined}
-      label={isInCart ? `✓ Ver no carrinho` : `Adicionar as compras`}
-      el={isInCart ? 'link' : undefined}
+      // href={isInCart ? '/cart' : undefined}
+      type={'button'}
+      label={'Adicionar as compras'}
+      // el={isInCart ? 'link' : undefined}
       appearance={appearance}
       className={[
         className,
         classes.addToCartButton,
-        appearance === 'default' && isInCart && classes.green,
-        !hasInitializedCart && classes.hidden,
+        appearance === 'default',
       ]
         .filter(Boolean)
         .join(' ')}
         onClick={
-          !isInCart
-            ? () => {
+() => {
                 const allowAddToCart = onAddToCart ? onAddToCart() : true;
                 if (allowAddToCart) {
                   addItemToCart({
@@ -65,10 +63,10 @@ export const AddToCartButton: React.FC<{
                     size: selectedSize,
                     quantity: quantity,
                   });
-                  router.push('/cart');
+                  // router.push('/cart');
                 }
               }
-            : undefined
+
         }
     />
   )

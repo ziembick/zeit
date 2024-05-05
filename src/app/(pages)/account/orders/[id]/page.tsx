@@ -24,8 +24,8 @@ export default async function Order({ params: { id } }) {
 
   let order: Order | null = null
 
-  console.log("valor token")
-  console.log(token)
+  // console.log("valor token")
+  // console.log(token)
 
   try {
     order = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/orders/${id}`, {

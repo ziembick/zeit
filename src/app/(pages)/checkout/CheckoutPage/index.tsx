@@ -116,7 +116,7 @@ export const CheckoutPage: React.FC<{
 
                 const metaImage = meta?.image
 
-                console.log("estou printando o size no checkout", size)
+                // console.log("estou printando o size no checkout", size)
                 
                 return (
                   <Fragment key={index}>

@@ -195,7 +195,7 @@ export const CartProvider = props => {
             typeof product === 'string'
               ? product === incomingProduct.id
               : product?.id === incomingProduct.id,
-              console.log('AQUII AQUI AQUI AQUI AQUI', incomingProduct.id) // console.log id
+              // console.log('AQUII AQUI AQUI AQUI AQUI', incomingProduct.id) // // console.log id
           ), // eslint-disable-line function-paren-newline
           
         )
@@ -207,8 +207,8 @@ export const CartProvider = props => {
 
   // this method can be used to add new items AND update existing ones
   const addItemToCart = useCallback(incomingItem => {
-    console.log("to pintando additemcart")
-    console.log(incomingItem)
+    // console.log("to pintando additemcart")
+    // console.log(incomingItem)
     dispatchCart({
       type: 'ADD_ITEM',
       payload: incomingItem,

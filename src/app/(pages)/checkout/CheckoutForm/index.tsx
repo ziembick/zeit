@@ -66,7 +66,7 @@ export const CheckoutForm: React.FC<{}> = () => {
               }),
             })
 
-            console.log('stingiiiigy')
+            // console.log('stingiiiigy')
             console.log(JSON.stringify({
               total: cartTotal.raw,
               stripePaymentIntentID: paymentIntent.id,

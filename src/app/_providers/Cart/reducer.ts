@@ -30,7 +30,7 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
     case 'SET_CART': {
       return action.payload
     }
- 
+
     case 'MERGE_CART': {
       const { payload: incomingCart } = action
 
@@ -68,31 +68,51 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
       const { payload: incomingItem } = action
       const productId =
         typeof incomingItem.product === 'string' ? incomingItem.product : incomingItem?.product?.id
-        
-        // const hasValidProductSize = (incomingItem: { product?: { size?: string } }) => {
-        //   const validSizes: Set<string> = new Set(['oneThird', 'half', 'twoThirds', 'full']);
-        
-        //   // Verifica se o produto tem um tamanho definido, se é do tipo string e se é um dos tamanhos válidos
-        //   return incomingItem.product && typeof incomingItem.product.size === 'string' && validSizes.has(incomingItem.product.size);
-        // }
-        
-      const indexInCart = cart?.items?.findIndex(({ product, size }) =>
+
+      // const hasValidProductSize = (incomingItem: { product?: { size?: string } }) => {
+      //   const validSizes: Set<string> = new Set(['oneThird', 'half', 'twoThirds', 'full']);
+
+      //   // Verifica se o produto tem um tamanho definido, se é do tipo string e se é um dos tamanhos válidos
+      //   return incomingItem.product && typeof incomingItem.product.size === 'string' && validSizes.has(incomingItem.product.size);
+      // }
+      // console.log('producccttt id', productId)
+      const indexInCart = cart?.items?.findIndex(({ product }) =>
         typeof product === 'string' ? product === productId : product?.id === productId,
       ) // eslint-disable-line function-paren-newline
 
-      let withAddedItem = [...(cart?.items || [])]
-
-
-      if (indexInCart === -1) {
-        withAddedItem.push(incomingItem)
+      let newIndexinCart
+      if (incomingItem.size === '') {
+        newIndexinCart = cart?.items?.findIndex(({ product }) =>
+          typeof product === 'string' ? product === productId : product?.id === productId,
+        )
+      } else {
+        newIndexinCart = cart?.items?.findIndex(item =>
+          typeof item.product === 'string'
+            ? item.product === productId
+            : item.product?.id === productId && item.size === incomingItem.size,
+        )
       }
 
-      if (typeof indexInCart === 'number' && indexInCart > -1) {
-        withAddedItem[indexInCart] = {
-          ...withAddedItem[indexInCart],
-          quantity: (incomingItem.quantity || 0) > 0 ? incomingItem.quantity : undefined,
+
+      // console.log('INDEX IN CART', indexInCart)
+      let withAddedItem = [...(cart?.items || [])]
+
+      // console.log('added item with', withAddedItem)
+
+      if (newIndexinCart === -1) {
+        withAddedItem.push(incomingItem)
+      }
+      console.log('added item 2', withAddedItem)
+
+
+      if (typeof newIndexinCart === 'number' && newIndexinCart > -1) {
+        withAddedItem[newIndexinCart] = {
+          ...withAddedItem[newIndexinCart],
+          quantity: withAddedItem[newIndexinCart].quantity + incomingItem.quantity
         }
-      }      
+      }
+
+      // console.log('added item 3', withAddedItem)
       return {
         ...cart,
         items: withAddedItem,
