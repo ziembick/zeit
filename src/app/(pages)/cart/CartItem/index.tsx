@@ -11,14 +11,15 @@ import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
 import { Size } from '../../../_components/Size'
 
 const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
-
   const [quantity, setQuantity] = useState(qty)
 
   const decrementQty = () => {
-    const updatedQty = quantity > 1 ? quantity - 1 : 1
+    if (quantity !== 1) {
+      const updatedQty = quantity > 1 ? quantity - 1 : 1
 
-    setQuantity(updatedQty)
-    addItemToCart({ product, quantity: Number(updatedQty) })
+      setQuantity(updatedQty)
+      addItemToCart({ product, size: size, quantity: Number(-1) })
+    }
   }
   const incrementQty = () => {
     const updatedQty = quantity + 1
