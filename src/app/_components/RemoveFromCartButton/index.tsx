@@ -9,8 +9,9 @@ import Image from 'next/image'
 export const RemoveFromCartButton: React.FC<{
   className?: string
   product: Product
+  size?: string
 }> = props => {
-  const { className, product } = props
+  const { className, product, size } = props
 
   const { deleteItemFromCart, isProductInCart } = useCart()
 

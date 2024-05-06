@@ -69,13 +69,6 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
       const productId =
         typeof incomingItem.product === 'string' ? incomingItem.product : incomingItem?.product?.id
 
-      // const hasValidProductSize = (incomingItem: { product?: { size?: string } }) => {
-      //   const validSizes: Set<string> = new Set(['oneThird', 'half', 'twoThirds', 'full']);
-
-      //   // Verifica se o produto tem um tamanho definido, se é do tipo string e se é um dos tamanhos válidos
-      //   return incomingItem.product && typeof incomingItem.product.size === 'string' && validSizes.has(incomingItem.product.size);
-      // }
-      // console.log('producccttt id', productId)
       const indexInCart = cart?.items?.findIndex(({ product }) =>
         typeof product === 'string' ? product === productId : product?.id === productId,
       ) // eslint-disable-line function-paren-newline
@@ -121,19 +114,28 @@ export const cartReducer = (cart: CartType, action: CartAction): CartType => {
     }
 
     case 'DELETE_ITEM': {
-      const { payload: incomingProduct } = action
-      const withDeletedItem = { ...cart }
-
+      const { payload: incomingProduct } = action;
+    
+      // Find the index of the product in the cart
       const indexInCart = cart?.items?.findIndex(({ product }) =>
         typeof product === 'string'
           ? product === incomingProduct.id
           : product?.id === incomingProduct.id,
-      ) // eslint-disable-line function-paren-newline
-
-      if (typeof indexInCart === 'number' && withDeletedItem.items && indexInCart > -1)
-        withDeletedItem.items.splice(indexInCart, 1)
-
-      return withDeletedItem
+      );
+    
+      if (typeof indexInCart === 'number' && cart.items && indexInCart > -1) {
+        // Create a new array without the item to delete
+        const updatedItems = cart.items.filter((item, index) => index !== indexInCart);
+    
+        // Return a new object with updated items array
+        return {
+          ...cart,
+          items: updatedItems,
+        };
+      }
+    
+      // If the item was not found, return the original cart
+      return cart;
     }
 
     case 'CLEAR_CART': {

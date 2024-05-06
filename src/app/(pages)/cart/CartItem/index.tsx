@@ -77,7 +77,7 @@ const CartItem = ({ product, title, metaImage, qty, addItemToCart, size }) => {
       </div>
       <div className={classes.subtotalWrapper}>
         <Price product={product} button={false} quantity={quantity} />
-        <RemoveFromCartButton product={product} />
+        <RemoveFromCartButton product={product} size={size}/>
       </div>
     </li>
   )
