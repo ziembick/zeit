@@ -24,7 +24,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Handle search functionality here, e.g., redirect to search results page or trigger a search API call
-    console.log('Search query:', searchQuery);
+    // console.log('Search query:', searchQuery);
   };
 
   return (

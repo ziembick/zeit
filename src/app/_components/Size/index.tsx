@@ -26,7 +26,7 @@ export const Size: React.FC<{
     const [isSizeSelected, setIsSizeSelected] = useState(false)
 
     useEffect(() => {
-      console.log('Tamanho selecionado:', selectedSize)
+      // console.log('Tamanho selecionado:', selectedSize)
     }, [selectedSize])
 
     return (
