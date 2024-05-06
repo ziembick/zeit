@@ -43,9 +43,10 @@ export const ProductHero: React.FC<{
       alert('Por favor, selecione um tamanho antes de prosseguir')
       return false;
     }
+    alert('Produto adicionado ao carrinho')
     return true
   }
-  // console.log("aquia quiaquiaquiauqi",product.title)
+
   return (
     <Gutter className={classes.productHero}>
       <div className={classes.mediaWrapper}>
