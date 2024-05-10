@@ -33,7 +33,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
         return <CMSLink key={i} {...link} appearance="none" />;
       })}
       <CartLink />
-      <form onSubmit={handleSearchSubmit}>
+      {/* <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
           placeholder="Search"
@@ -42,7 +42,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
           className={classes.searchInput}
         />
         <button type="submit">Search</button>
-      </form>
+      </form> */}
       {user && (
         <Link href="/account">
           <Image src="/user2.png" alt="User Image" width={19} height={19} />

@@ -43,6 +43,7 @@ export const ProductHero: React.FC<{
       alert('Por favor, selecione um tamanho antes de prosseguir')
       return false;
     }
+    alert('Produto adicionado ao carrinho')
     return true
   }
 
