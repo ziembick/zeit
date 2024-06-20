@@ -47,7 +47,6 @@ export const ProductHero: React.FC<{
     return true
   }
 
-  
   return (
     <Gutter className={classes.productHero}>
       <div className={classes.mediaWrapper}>
